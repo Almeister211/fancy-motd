@@ -17,11 +17,6 @@ fi
 # Source the framework
 source "${BASE_DIR}/framework.sh"
 
-# Banner for SSH logins
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
-        figlet -w 120 -f "Georgia11" "$(hostname)" | lolcat
-fi
-
 # Run the modules and collect output
 output=""
 # shellcheck disable=SC2010
