@@ -3,7 +3,7 @@
 # Don't change! We want predictable outputs
 export LANG="en_US.UTF-8"
 
-# Dir of this scrip
+# Dir of this script
 BASE_DIR=$(dirname "$(readlink -f "$0")")
 export BASE_DIR
 
@@ -16,6 +16,11 @@ fi
 
 # Source the framework
 source "${BASE_DIR}/framework.sh"
+
+# Banner for SSH logins
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+        figlet -w 120 -f "Georgia11" "$(hostname)" | lolcat
+fi
 
 # Run the modules and collect output
 output=""
